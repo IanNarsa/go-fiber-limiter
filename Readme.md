@@ -54,10 +54,6 @@ The API uses environment variables for configuration:
 
 You can set these variables in a `.env` file or through system environment variables.
 
-### License
-
-This project is licensed under the MIT License. See [LICENSE](./LICENSE) for details.
-
 ### Rate Limiting Middleware
 
 The API uses rate limiting middleware to protect against abuse:
