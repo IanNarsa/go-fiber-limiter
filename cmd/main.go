@@ -35,7 +35,8 @@ func main() {
 			LimitReached: func(c *fiber.Ctx) error {
 				return c.Status(fiber.StatusTooManyRequests).JSON(
 					fiber.Map{
-						"error": "Too many request, please try again later.",
+						"error":   "Too many request, please try again later.",
+						"message": "You have exceeded the request limit. Please try again later.",
 					})
 			},
 		},
