@@ -1,16 +1,45 @@
-Certainly! Here's an improved and formatted version of the documentation for the Romeo-Lima API:
-
----
-
 # Romeo-Lima API
 
-Romeo-Lima API is a RESTful API built using Go and the Fiber framework.
+Romeo-Lima API is a boilerplate RESTful API built using Go and the Fiber framework.
 
 ## Features
 
 - **Customer Management:** Perform CRUD operations on customer data.
 - **Rate Limiting:** Implements IP-based rate limiting for enhanced security.
 - **PostgreSQL Support:** Utilizes PostgreSQL as the database backend.
+
+## Folder Structure
+Romeo-Lima:.
+│   .env
+│   .gitignore
+│   go.mod
+│   go.sum
+│   Readme.md
+│
+├───cmd
+│       main.go
+│
+├───config
+│       config.go
+│
+├───internal
+│   ├───customers
+│   │   ├───delivery
+│   │   │       handler.go
+│   │   │
+│   │   ├───repository
+│   │   │       customer_repository.go
+│   │   │       repository.go
+│   │   │
+│   │   └───usecase
+│   │           customer_usecase.go
+│   │
+│   └───models
+│           customer.go
+│
+└───pkg
+    └───logger
+            logger.go
 
 ## Getting Started
 
