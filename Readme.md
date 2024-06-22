@@ -71,8 +71,6 @@ Romeo-Lima:.
 - **GET /customers:** Retrieve a list of all customers.
 - **GET /customers/:id:** Retrieve a single customer by ID.
 - **POST /customers:** Create a new customer.
-- **PUT /customers/:id:** Update an existing customer.
-- **DELETE /customers/:id:** Delete a customer.
 
 ### Configuration
 
