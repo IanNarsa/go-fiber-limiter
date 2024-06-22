@@ -116,11 +116,3 @@ app.Use(limiter.New(limiter.Config{
 
 **Failed Over Limit**
 ![over-limit-sample](/assets/failed.png)
-
-## Contributing
-
-Contributions are welcome! Please open a pull request with your proposed changes.
-
----
-
-This enhanced documentation provides a clear overview of the Romeo-Lima API, its features, setup instructions, endpoints, configuration details, and rate limiting implementation using Fiber middleware.
