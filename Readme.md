@@ -110,7 +110,7 @@ app.Use(limiter.New(limiter.Config{
 - **LimitReached:** Function called when the rate limit is exceeded, returning a 429 error with a JSON response.
 
 ### Sample results
-**Success**
+**Success** </br>
 ![success-sample](/assets/success.png)
 
 
