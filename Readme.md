@@ -109,6 +109,14 @@ app.Use(limiter.New(limiter.Config{
 - **KeyGenerator:** Function to generate a unique key based on the client's IP address.
 - **LimitReached:** Function called when the rate limit is exceeded, returning a 429 error with a JSON response.
 
+### Sample results
+**Success**
+![success-sample](/assets/success.png)
+
+
+**Failed Over Limit**
+![over-limit-sample](/assets/failed.png)
+
 ## Contributing
 
 Contributions are welcome! Please open a pull request with your proposed changes.
