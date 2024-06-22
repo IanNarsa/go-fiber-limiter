@@ -17,11 +17,23 @@ func NewCustomerHandler(app *fiber.App, us usecase.CustomerUsecase) {
 	handler := &CustomerHandler{
 		CUsecase: us,
 	}
-	app.Get("/customers/:id", handler.GetCustomer)
+	app.Get("/customers", handler.GetCustomers)
+	app.Get("/customers/:id", handler.GetCustomerByID)
 	app.Post("/customers", handler.CreateCustomer)
 }
 
-func (ch *CustomerHandler) GetCustomer(c *fiber.Ctx) error {
+func (ch *CustomerHandler) GetCustomers(c *fiber.Ctx) error {
+	customers, err := ch.CUsecase.GetAllCustomers(c.Context())
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{"error": err.Error()})
+	}
+	if customers == nil {
+		return c.Status(http.StatusNotFound).JSON(fiber.Map{"error": "Customer not found"})
+	}
+	return c.JSON(customers)
+}
+
+func (ch *CustomerHandler) GetCustomerByID(c *fiber.Ctx) error {
 	id, err := c.ParamsInt("id")
 	if err != nil {
 		return c.Status(http.StatusBadRequest).JSON(fiber.Map{"error": "Invalid ID"})

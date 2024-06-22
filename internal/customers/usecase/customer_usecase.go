@@ -7,6 +7,7 @@ import (
 )
 
 type CustomerUsecase interface {
+	GetAllCustomers(ctx context.Context) (*[]models.Customer, error)
 	GetCustomerByID(ctx context.Context, id int) (*models.Customer, error)
 	CreateCustomer(ctx context.Context, customer *models.Customer) error
 }
@@ -17,6 +18,10 @@ type customerUsecase struct {
 
 func NewCustomerUsecase(cr repository.CustomerRepository) CustomerUsecase {
 	return &customerUsecase{cr}
+}
+
+func (cu *customerUsecase) GetAllCustomers(ctx context.Context) (*[]models.Customer, error) {
+	return cu.customerRepo.GetAllData(ctx)
 }
 
 func (cu *customerUsecase) GetCustomerByID(ctx context.Context, id int) (*models.Customer, error) {

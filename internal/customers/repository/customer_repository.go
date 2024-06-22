@@ -16,6 +16,19 @@ func NewPostgresCustomerRepository(conn *sqlx.DB) CustomerRepository {
 	return &postgresCustomerRepository{conn}
 }
 
+func (p *postgresCustomerRepository) GetAllData(ctx context.Context) (*[]models.Customer, error) {
+	query := "SELECT customer_id, customer_name, contact_info FROM customers"
+	var customer []models.Customer
+	err := p.Conn.SelectContext(ctx, &customer, query)
+	if err != nil {
+		if err == sql.ErrNoRows {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return &customer, nil
+}
+
 func (p *postgresCustomerRepository) GetByID(ctx context.Context, id int) (*models.Customer, error) {
 	query := "SELECT customer_id, customer_name, contact_info FROM customers WHERE customer_id = $1"
 	var customer models.Customer
