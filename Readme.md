@@ -9,6 +9,7 @@ Romeo-Lima API is a boilerplate RESTful API built using Go and the Fiber framewo
 - **PostgreSQL Support:** Utilizes PostgreSQL as the database backend.
 
 ## Folder Structure
+```bash
 Romeo-Lima:.
 │   .env
 │   .gitignore
@@ -40,6 +41,8 @@ Romeo-Lima:.
 └───pkg
     └───logger
             logger.go
+
+``` 
 
 ## Getting Started
 
